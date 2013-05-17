@@ -43,7 +43,9 @@ td{
 </form>
 
 <?php  //插入记录
+	
 	if(isset($_GET['submit'])){
+		
 		$sql="INSERT INTO ".$table_name." (domain, name, nickname, dateadded, datelastmodify, description, ip, ftpaddress, ftpusr, ftppwd)
 		 VALUES ('$_GET[domain]','$_GET[name]','$_GET[nickname]',now(),CURRENT_TIMESTAMP,'$_GET[description]','$_GET[ip]','$_GET[ftpaddress]','$_GET[ftpusr]','$_GET[ftppwd]')";
 		
@@ -63,6 +65,7 @@ td{
 </p>
 
 <?php  //查询记录
+	mysql_query("SET NAMES utf8"); 
 	$result = mysql_query("SELECT * FROM ".$table_name);
 	 echo "<table>
 				<tr><td>id</td><td>域名</td><td>用户名</td><td>昵称</td><td>添加日期</td><td>最后修改日期</td><td>备注</td><td>ip</td><td>ftp地址</td><td>ftp用户名</td><td>密码</td><td>-编辑-</td><td>-删除-</td></tr>";
